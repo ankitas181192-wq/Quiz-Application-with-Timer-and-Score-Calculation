@@ -10,10 +10,9 @@ import "./styles/quiz.css";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [score, setScore] = useState(null);
-
   return (
     <div className="app">
-      <Header />
+      <Header userName={selectedCategory?.userName} />
       {!selectedCategory && !score && (
         <CategorySelection
           categories={questionsData.categories}

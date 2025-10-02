@@ -4,9 +4,7 @@ import Question from "./Question";
 
 function Quiz({ category, onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState(null);
 
-  console.log(answers, "answers");
   const [time, setTime] = useState(category.selected.questions[0].timeLimit);
 
   const currentQuestion = category.selected.questions[currentIndex];
@@ -19,7 +17,6 @@ function Quiz({ category, onComplete }) {
   }, [time]);
 
   const handleAnswer = (answerData) => {
-    setAnswers((prev) => ({ ...prev, ...answerData }));
     nextQuestion(answerData);
   };
   const getAnswerData = (ans) => {
@@ -48,7 +45,6 @@ function Quiz({ category, onComplete }) {
       unanswered = 0;
 
     category.selected.questions.forEach((q) => {
-      console.log(answerData, "answers");
       const ans = answerData[q.id];
 
       if (!ans) {
