@@ -38,16 +38,16 @@ function CategorySelection({ categories, onSelect }) {
             <p>Please select topic to continue</p>
             <div className="categories">
               {categories.map((cat) => (
-                <div className="categoryOptionContainer">
-                  <label class="topic-card">
+                <div className="categoryOptionContainer" key={cat.id}>
+                  <label className="topic-card">
                     <input
                       type="radio"
                       name="topic"
                       value={cat.id}
                       onChange={() => setSelected(cat.id)}
                     />
-                    <span class="radio"></span>
-                    <span class="topic-text">{cat.name}</span>
+                    <span className="radio"></span>
+                    <span className="topic-text">{cat.name}</span>
                   </label>
                 </div>
               ))}
@@ -58,7 +58,7 @@ function CategorySelection({ categories, onSelect }) {
               onClick={() =>
                 onSelect({
                   selected: categories.find((cat) => cat.id === selected),
-                  username: name,
+                  userName: name,
                 })
               }
             >

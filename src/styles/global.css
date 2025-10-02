@@ -1,12 +1,15 @@
-/* Font & Reset */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #F3F3E9;
+  font-family: "Poppins", sans-serif;
+  background-color: #f3f3e9;
   color: #333;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   font-weight: 600;
 }
@@ -31,33 +34,45 @@ input[type="text"] {
 
 /* Primary Brand */
 .brand {
-  color: #C2185B; /* pink from template */
+  color: #c2185b; /* pink from template */
   font-weight: 700;
 }
-.notbold{
+.notbold {
   font-weight: 400 !important;
 }
-.header{
+.header {
   height: 80px;
   display: flex;
   align-items: center;
   padding: 0 40px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
-.fontSize64{
+.fontSize64 {
   font-size: 64px;
 }
-.mar28{
+.mar28 {
   margin: 28px 0;
 }
-.noPad{
+.noPad {
   padding: 0 !important;
   margin: 0 !important;
 }
-.customPointer{
+.customPointer {
   cursor: pointer;
 }
-button:disabled{
-  opacity: .5;
+button:disabled {
+  opacity: 0.5;
   cursor: default;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  justify-content: space-between;
+}
+.flexEnd {
+  display: flex;
+
+  justify-content: space-between;
 }
