@@ -1,4 +1,4 @@
-/* Category Selection Screen */
+
 .category-selection {
   width: 60%;
   margin: 60px auto;
@@ -19,7 +19,6 @@
   margin-top: 20px;
 }
 
-/* Quiz Page */
 .quiz {
   max-width: 700px;
   margin: 40px auto;
@@ -65,7 +64,6 @@
   background: #f9f9f9;
 }
 
-/* Answer buttons */
 .actions {
   display: flex;
   justify-content: space-between;
@@ -81,7 +79,6 @@
   background: #eee;
 }
 
-/* Result Page */
 .result {
   text-align: center;
   padding: 30px;
@@ -116,10 +113,10 @@
   text-align: left;
 }
 .category-selection-inner-container input[type="text"] {
-  width: 70%;
+  width: 100%;
   background-color: #F3F3E9;
 }
-/* Hide native radio */
+
 .topic-card input[type="radio"] {
   display: none;
 }
@@ -128,10 +125,10 @@
   width: 50%;
 }
 .topic-card {
-  display: inline-flex; /* keep items in a row */
+  display: inline-flex; 
   align-items: center;
-  gap: 10px;
-  width: 80%;
+  gap: 20px;
+  width: 95%;
   padding: 14px 18px;
   border: 1.5px solid #e3dbcf;
   border-radius: 12px;
@@ -141,9 +138,9 @@
   font-size: 16px;
   font-weight: 600;
   color: #2f2a33;
-  white-space: nowrap; /* prevents text from going to next line */
+  white-space: nowrap; 
 }
-/* Circle */
+
 .topic-card .radio {
   width: 20px;
   height: 20px;
@@ -156,7 +153,6 @@
   position: relative;
 }
 
-/* Default: empty circle */
 .topic-card .radio::before {
   content: "";
   width: 10px;
@@ -166,14 +162,13 @@
   transition: all 0.2s ease;
 }
 
-/* Checked state */
 .topic-card input[type="radio"]:checked + .radio {
   background: #d84c7e;
   border-color: #d84c7e;
 }
 
 .topic-card input[type="radio"]:checked + .radio::before {
-  content: "✔"; /* checkmark */
+  content: "✔"; 
   color: white;
   font-size: 12px;
   line-height: 1;
@@ -187,7 +182,7 @@
     margin-top: 10px;
   }
   .topic-card {
-    display: flex; /* keep items in a row */
+    display: flex; 
     width: 100%;
   }
   .fontSize64 {

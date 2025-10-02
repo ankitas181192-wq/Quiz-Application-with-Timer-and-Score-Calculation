@@ -2,6 +2,12 @@ import React, { useState } from "react";
 
 function Question({ question, onAnswer, onSkip }) {
   const [selected, setSelected] = useState(null);
+  const selectOptionHandlar = (questionId, option) => {
+    setSelected((prev) => ({
+      ...prev,
+      [questionId]: option,
+    }));
+  };
 
   return (
     <div className="question">
@@ -13,9 +19,9 @@ function Question({ question, onAnswer, onSkip }) {
               <input
                 type="radio"
                 name={question.id}
-                value={idx}
-                checked={selected === idx}
-                onChange={() => setSelected(idx)}
+                value={selected?.[question.id] ?? ""}
+                checked={selected?.[question.id] === idx}
+                onChange={() => selectOptionHandlar(question.id, idx)}
               />
               {opt}
             </label>
@@ -23,7 +29,10 @@ function Question({ question, onAnswer, onSkip }) {
         ))}
       </ul>
       <div className="actions">
-        <button disabled={selected === null} onClick={() => onAnswer(selected)}>
+        <button
+          disabled={!(selected?.[question.id] >= 0)}
+          onClick={() => onAnswer(selected)}
+        >
           Next
         </button>
         <button onClick={onSkip}>Skip this question</button>

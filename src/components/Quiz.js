@@ -4,7 +4,9 @@ import Question from "./Question";
 
 function Quiz({ category, onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState(null);
+
+  console.log(answers, "answers");
   const [time, setTime] = useState(category.selected.questions[0].timeLimit);
 
   const currentQuestion = category.selected.questions[currentIndex];
@@ -13,32 +15,45 @@ function Quiz({ category, onComplete }) {
     if (time === 0) {
       nextQuestion();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time]);
 
-  const handleAnswer = (answerIndex) => {
-    setAnswers([...answers, { qid: currentQuestion.id, answer: answerIndex }]);
-    nextQuestion();
+  const handleAnswer = (answerData) => {
+    setAnswers((prev) => ({ ...prev, ...answerData }));
+    nextQuestion(answerData);
   };
-
-  const nextQuestion = () => {
+  const getAnswerData = (ans) => {
+    if (ans === 0) {
+      return "A";
+    } else if (ans === 1) {
+      return "B";
+    } else if (ans === 2) {
+      return "C";
+    } else if (ans === 4) {
+      return "D";
+    }
+  };
+  const nextQuestion = (answerData) => {
     if (currentIndex + 1 < category.selected.questions.length) {
       setCurrentIndex(currentIndex + 1);
       setTime(category.selected.questions[currentIndex + 1].timeLimit);
     } else {
-      calculateScore();
+      calculateScore(answerData);
     }
   };
 
-  const calculateScore = () => {
+  const calculateScore = (answerData) => {
     let correct = 0,
       incorrect = 0,
       unanswered = 0;
 
-    category.selected.questions.forEach((q, idx) => {
-      const ans = answers[idx];
+    category.selected.questions.forEach((q) => {
+      console.log(answerData, "answers");
+      const ans = answerData[q.id];
+
       if (!ans) {
         unanswered++;
-      } else if (ans.answer === q.correctAnswer) {
+      } else if (getAnswerData(ans) === q.correctAnswer) {
         correct++;
       } else {
         incorrect++;

@@ -1,10 +1,9 @@
 import React from "react";
-import "./QuizRules.css";
+import "../styles/quizRule.css";
 
-export default function QuizRules({ onClose }) {
+export default function QuizRules({ setShowRules }) {
   return (
     <div className="rules-page">
-      {/* Top app bar with brand (faint like screenshot) */}
       <header className="rules-topbar">
         <div className="brand-mark">
           <span className="brand-quiz">QUIZ</span>
@@ -12,15 +11,13 @@ export default function QuizRules({ onClose }) {
         </div>
       </header>
 
-      {/* Dimmed backdrop */}
       <div className="rules-backdrop" />
 
-      {/* Centered modal/card */}
       <main className="rules-modal" role="dialog" aria-labelledby="rules-title">
         <button
           className="rules-close"
           aria-label="Close rules"
-          onClick={onClose}
+          onClick={() => setShowRules(false)}
           type="button"
         >
           ×

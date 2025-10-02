@@ -13,10 +13,11 @@ function Result({ score, onRestart }) {
       <p>Your Score: {percentage.toFixed(0)}%</p>
       <p>{message}</p>
 
-      <p>
-        Out of {score.total} questions <br />✅ {score.correct} Correct <br />❌{" "}
-        {score.incorrect} Incorrect <br />⏳ {score.unanswered} Unanswered
-      </p>
+      <div>
+        <p>Out of {score.total} questions </p>{" "}
+        <p>✅ {score.correct} Correct </p>
+        <p>❌ {score.incorrect} Incorrect </p>⏳ {score.unanswered} Unanswered
+      </div>
 
       <button onClick={onRestart}>Retake Quiz</button>
     </div>
