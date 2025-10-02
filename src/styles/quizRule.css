@@ -1,0 +1,119 @@
+:root{
+    --bg: #BEBDB6;            /* dimmed page bg in screenshot */
+    --card: #FFFFFF;          /* modal card bg */
+    --muted: #6B6660;         /* helper text tone */
+    --text: #1F1B24;          /* main text */
+    --stroke: #E6DED2;        /* subtle borders */
+    --ribbon: #F2F0E6;        /* pale ribbon bg */
+    --brand: #D84C7E;         /* QuizMania pink */
+    --shadow: 0 20px 40px rgba(0,0,0,.18);
+  }
+  
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color: var(--text);
+  }
+  
+  /* Page shell */
+  .rules-page {
+    min-height: 100vh;
+    background: var(--bg);
+    position: relative;
+  }
+  
+  /* Top bar */
+  .rules-topbar {
+    height: 54px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    display: flex;
+    align-items: center;
+    padding: 0 36px;
+    opacity: .85;
+  }
+  
+  .brand-mark { font-weight: 800; letter-spacing: .2px; }
+  .brand-quiz { color: #9A5B63; margin-right: 2px; }
+  .brand-mania { color: var(--brand); }
+  
+  /* Backdrop (subtle; we already have a grey page background) */
+  .rules-backdrop {
+    position: fixed; inset: 54px 0 0 0;
+    background: rgba(0,0,0,.06);
+  }
+  
+  /* Modal */
+  .rules-modal {
+    position: fixed;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(840px, calc(100% - 48px));
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 28px 28px 24px;
+    border: 1px solid var(--stroke);
+  }
+  
+  /* Close button (top-right) */
+  .rules-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px; height: 34px;
+    border: 1px solid var(--stroke);
+    border-radius: 999px;
+    background: #F7F4EE;
+    color: #24222A;
+    font-size: 22px;
+    line-height: 1;
+    display: grid; place-items: center;
+    cursor: pointer;
+  }
+  .rules-close:hover { filter: brightness(.96); }
+  
+  /* Title */
+  .rules-title {
+    margin: 8px 6px 18px;
+    font-size: clamp(22px, 3.2vw, 32px);
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: #2A2435;
+  }
+  
+  /* Sections */
+  .rules-section { margin: 18px 6px 22px; }
+  
+  .section-ribbon {
+    background: var(--ribbon);
+    border: 1px solid var(--stroke);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  
+  /* Lists */
+  .rules-list {
+    margin: 0;
+    padding-left: 20px; /* bullets indent like screenshot */
+    color: #1F1B24;
+    line-height: 1.65;
+  }
+  .rules-list li { margin: 6px 0; }
+  
+  .rules-list.nested {
+    margin-top: 8px;
+    padding-left: 20px;
+    color: var(--muted);
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px){
+    .rules-modal { top: 76px; padding: 22px 18px; }
+    .rules-close { top: 10px; right: 10px; }
+  }
+  
